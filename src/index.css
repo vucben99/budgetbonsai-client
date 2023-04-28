@@ -1,0 +1,6 @@
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: url('./wallpaper.jpg') no-repeat center center fixed !important;
+  background-size: cover;
+}

@@ -24,16 +24,19 @@ function Navbar() {
     <Flex as='nav' h='65px' p='16px' bg='whatsapp.400' align='center'>
       <HStack spacing='5px'>
         <Icon as={GiBonsaiTree} boxSize={9} color='whatsapp.100' />
-        <Heading as='h1' fontSize='3xl' color='white'>
+        <Heading
+          as='h1'
+          fontSize='3xl'
+          color='white'
+          display={{ base: 'none', sm: 'inline-block' }}
+        >
           BudgetBonsai
         </Heading>
       </HStack>
       <Spacer />
       {isLoggedIn ? (
-        <HStack spacing='15px'>
-          <Text>
-            John Doe
-          </Text>
+        <HStack spacing={3}>
+          <Text whiteSpace='nowrap' fontWeight='bold'>John Doe</Text>
           <Avatar size='md' />
           <Button colorScheme='green' onClick={logoutHandler}>
             Logout

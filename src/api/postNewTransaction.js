@@ -3,14 +3,7 @@ import axios from 'axios'
 async function postNewTransaction(transaction) {
   try {
     const sessionToken = localStorage.getItem('sessionToken')
-    const { data } = await axios.post('http://localhost:8000/api/transactions', {
-      name: transaction.name,
-      amount: parseInt(transaction.amount),
-      category: transaction.category,
-      date: transaction.date,
-      type: transaction.type,
-      currency: transaction.currency
-    }, {
+    const { data } = await axios.post('http://localhost:8000/api/transactions', transaction, {
       headers: {
         'Authorization': `Bearer ${sessionToken}`
       }
