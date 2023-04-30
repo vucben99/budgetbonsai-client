@@ -1,6 +1,7 @@
 import { Card, CardBody, CardHeader, Flex, Heading, Text } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { sessionContext } from '../contexts/sessionContext'
+import StatsByCurrency from './StatsByCurrency'
 
 function Stats() {
   const { transactions } = useContext(sessionContext)
@@ -19,43 +20,8 @@ function Stats() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <Flex justify='space-between'>
-          <Text fontSize='xl'>Total income (HUF):</Text>
-          <Text fontSize='xl' color='green.500' fontWeight='bold'>
-            {transactions
-              ?.filter(
-                (transaction) => transaction.type === 'income' && transaction.currency === 'HUF'
-              )
-              .reduce((acc, curr) => acc + curr.amount, 0)
-              .toLocaleString()}
-          </Text>
-        </Flex>
-        <Flex justify='space-between'>
-          <Text fontSize='xl'>Total expenses (HUF):</Text>
-          <Text fontSize='xl' color='red.400' fontWeight='bold'>
-            {transactions
-              ?.filter(
-                (transaction) => transaction.type === 'expense' && transaction.currency === 'HUF'
-              )
-              .reduce((acc, curr) => acc - curr.amount, 0)
-              .toLocaleString()}
-          </Text>
-        </Flex>
-        <Flex justify='space-between'>
-          <Text fontSize='xl'>Total balance (HUF):</Text>
-          <Text fontSize='xl' fontWeight='bold'>
-            {transactions
-              ?.reduce((acc, curr) => {
-                if (curr.type === 'income' && curr.currency === 'HUF') {
-                  return acc + curr.amount
-                }
-                if (curr.type === 'expense' && curr.currency === 'HUF') {
-                  return acc - curr.amount
-                } else return acc
-              }, 0)
-              .toLocaleString()}
-          </Text>
-        </Flex>
+        <StatsByCurrency transactions={transactions} currency='HUF' />
+        <StatsByCurrency transactions={transactions} currency='EUR' />
       </CardBody>
     </Card>
   )

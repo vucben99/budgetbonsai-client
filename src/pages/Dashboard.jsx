@@ -1,18 +1,5 @@
 import { useEffect, useContext } from 'react'
-import {
-  SimpleGrid,
-  Flex,
-  Container,
-  Text,
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  List,
-  ListItem,
-  Spacer,
-  VStack
-} from '@chakra-ui/react'
+import { SimpleGrid, Container, Heading } from '@chakra-ui/react'
 import { sessionContext } from '../contexts/sessionContext'
 import NewTransaction from '../components/NewTransaction'
 import TransactionList from '../components/TransactionList'

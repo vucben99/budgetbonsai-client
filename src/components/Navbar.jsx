@@ -21,7 +21,16 @@ function Navbar() {
   const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}&prompt=consent&access_type=offline`
 
   return (
-    <Flex as='nav' h='65px' p='16px' bg='whatsapp.400' align='center'>
+    <Flex
+      as='nav'
+      h='65px'
+      p='16px'
+      bg='whatsapp.400'
+      align='center'
+      position='fixed'
+      inset={0}
+      zIndex={99}
+    >
       <HStack spacing='5px'>
         <Icon as={GiBonsaiTree} boxSize={9} color='whatsapp.100' />
         <Heading
@@ -36,7 +45,9 @@ function Navbar() {
       <Spacer />
       {isLoggedIn ? (
         <HStack spacing={3}>
-          <Text whiteSpace='nowrap' fontWeight='bold'>John Doe</Text>
+          <Text whiteSpace='nowrap' fontWeight='bold'>
+            John Doe
+          </Text>
           <Avatar size='md' />
           <Button colorScheme='green' onClick={logoutHandler}>
             Logout

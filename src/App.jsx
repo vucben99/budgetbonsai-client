@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 
+
 import FinishLoginPage from './pages/FinishLoginPage'
 import HomePage from './pages/HomePage'
 
@@ -15,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const sessionToken = localStorage.getItem('sessionToken')
-    
+
     if (sessionToken) setIsLoggedIn(true)
   }, [])
 

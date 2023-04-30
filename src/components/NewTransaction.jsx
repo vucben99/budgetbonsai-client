@@ -70,7 +70,7 @@ function NewTransaction() {
         </Heading>
       </CardHeader>
       <CardBody>
-        <form onSubmit={handleAddNewTransaction}>
+        <Flex as='form' flexDir='column' gap={3} onSubmit={handleAddNewTransaction}>
           <FormControl isRequired>
             <FormLabel>Name</FormLabel>
             <Input
@@ -79,46 +79,65 @@ function NewTransaction() {
               value={name.value}
               onChange={name.onChange}
               variant='filled'
+              _focus={{ bg: '#fff' }}
             />
           </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Amount</FormLabel>
-            <NumberInput
-              variant='filled'
-              min={0.01}
-              max={1000000000}
-              precision={2}
-              step={1}
-              placeholder='Amount'
-              value={amount.value}
-              onChange={(value) => {
-                amount.setValue(value)
-              }}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Currency</FormLabel>
-            <Select value={currency.value} onChange={currency.onChange} variant='filled'>
-              <option value='HUF'>HUF</option>
-              <option value='EUR'>EUR</option>
-            </Select>
-          </FormControl>
+          <Flex gap={3}>
+            <FormControl isRequired>
+              <FormLabel>Amount</FormLabel>
+              <NumberInput
+                variant='filled'
+                _focus={{ bg: '#fff' }}
+                min={0.01}
+                max={1000000000}
+                precision={2}
+                step={1}
+                placeholder='Amount'
+                value={amount.value}
+                onChange={(value) => {
+                  amount.setValue(value)
+                }}
+              >
+                <NumberInputField _focus={{ bg: '#fff' }} />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel>Currency</FormLabel>
+              <Select
+                value={currency.value}
+                onChange={currency.onChange}
+                variant='filled'
+                _focus={{ bg: '#fff' }}
+              >
+                <option value='HUF'>HUF</option>
+                <option value='EUR'>EUR</option>
+              </Select>
+            </FormControl>
+          </Flex>
           <FormControl isRequired>
             <FormLabel>Type</FormLabel>
-            <Select value={type.value} onChange={type.onChange} variant='filled'>
+            <Select
+              value={type.value}
+              onChange={type.onChange}
+              variant='filled'
+              _focus={{ bg: '#fff' }}
+            >
               <option value='expense'>Expense</option>
               <option value='income'>Income</option>
             </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Category</FormLabel>
-            <Select value={category.value} onChange={category.onChange} variant='filled'>
+            <Select
+              value={category.value}
+              onChange={category.onChange}
+              variant='filled'
+              _focus={{ bg: '#fff' }}
+            >
               <option value='Groceries'>Groceries</option>
               <option value='Restaurant'>Restaurant</option>
               <option value='Transport'>Transport</option>
@@ -148,7 +167,7 @@ function NewTransaction() {
               Add transaction
             </Button>
           </Flex>
-        </form>
+        </Flex>
       </CardBody>
     </Card>
   )

@@ -8,16 +8,14 @@ function HomePage() {
     document.title = 'Home - BudgetBonsai'
   }, [])
 
-  const { isLoggedIn, setIsLoggedIn } = useContext(sessionContext)
+  const { isLoggedIn } = useContext(sessionContext)
 
-  return (
-    <>
-      {!isLoggedIn ? (
-        <p>BudgetBonsai - Manage your expenses and incomes all in one place!</p>
-      ) : (
-        <Dashboard />
-      )}
-    </>
+  return !isLoggedIn ? (
+    <h1 style={{ fontSize: '3rem', color: 'white', textAlign: 'center' }}>
+      BudgetBonsai - Manage your expenses and incomes all in one place!
+    </h1>
+  ) : (
+    <Dashboard />
   )
 }
 export default HomePage
