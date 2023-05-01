@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
+
 async function postNewTransaction(transaction) {
   try {
     const sessionToken = localStorage.getItem('sessionToken')
-    const { data } = await axios.post('http://localhost:8000/api/transactions', transaction, {
+    const { data } = await axios.post(`${backendBaseUrl}/api/transactions`, transaction, {
       headers: {
         'Authorization': `Bearer ${sessionToken}`
       }

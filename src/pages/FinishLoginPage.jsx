@@ -2,21 +2,29 @@ import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-
 import { sessionContext } from '../contexts/sessionContext'
+
+const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
 
 function FinishLoginPage() {
   const navigate = useNavigate()
-  const { setIsLoggedIn } = useContext(sessionContext)
+  const { setIsLoggedIn, setUserData } = useContext(sessionContext)
 
   useEffect(() => {
     async function finishLogin() {
       try {
         const code = new URLSearchParams(window.location.search).get('code')
-        const sessionTokenResponse = await axios.post('http://localhost:8000/api/login', { code })
+        const sessionTokenResponse = await axios.post(`${backendBaseUrl}/api/login`, { code })
         const sessionToken = sessionTokenResponse.data.sessionToken
         localStorage.setItem('sessionToken', sessionToken)
-        // const userData = jwt_decode(sessionToken)
+        const decodedToken = jwt_decode(sessionToken)
+        const user = {
+          name: `${decodedToken.first_name} ${decodedToken.last_name}`,
+          email: decodedToken.email,
+          picture: decodedToken.picture
+        }
+        localStorage.setItem('userData', JSON.stringify(user))
+        setUserData(user)
         setIsLoggedIn(true)
         navigate('/')
       } catch (error) {

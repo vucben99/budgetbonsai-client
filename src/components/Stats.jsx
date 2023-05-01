@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader, Flex, Heading, Text } from '@chakra-ui/react'
+import { Card, CardBody, CardHeader, VStack, Heading, Text } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { sessionContext } from '../contexts/sessionContext'
 import StatsByCurrency from './StatsByCurrency'
@@ -14,14 +14,16 @@ function Stats() {
       borderRadius='2xl'
       gridColumn={{ base: 'span 1', md: 'span 2', xl: 'span 1' }}
     >
-      <CardHeader>
+      <CardHeader pb={0}>
         <Heading as='h3' size='lg'>
           Statistics
         </Heading>
       </CardHeader>
       <CardBody>
-        <StatsByCurrency transactions={transactions} currency='HUF' />
-        <StatsByCurrency transactions={transactions} currency='EUR' />
+        <VStack spacing={3} align='stretch'>
+          <StatsByCurrency transactions={transactions} currency='HUF' />
+          <StatsByCurrency transactions={transactions} currency='EUR' />
+        </VStack>
       </CardBody>
     </Card>
   )

@@ -5,28 +5,28 @@ import { useContext } from 'react'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 
-
 import FinishLoginPage from './pages/FinishLoginPage'
 import HomePage from './pages/HomePage'
 
-import Navbar from './components/Navbar'
-
 function App() {
-  const { setIsLoggedIn } = useContext(sessionContext)
+  const { setIsLoggedIn, userData, setUserData } = useContext(sessionContext)
 
   useEffect(() => {
     const sessionToken = localStorage.getItem('sessionToken')
+    const userData = localStorage.getItem('userData')
 
-    if (sessionToken) setIsLoggedIn(true)
+    if (sessionToken) {
+      setIsLoggedIn(true)
+      setUserData(JSON.parse(userData))
+    }
   }, [])
 
   return (
     <div className='App'>
-      <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/finishlogin' element={<FinishLoginPage />} />
-        <Route path='*' element={<div>404</div>} />
+        <Route path='*' element={<h1>404 - Not Found</h1>} />
       </Routes>
     </div>
   )

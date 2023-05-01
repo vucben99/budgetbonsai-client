@@ -1,8 +1,10 @@
 import axios from "axios"
 
+const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
+
 async function deleteTransaction(_id) {
   try {
-    const response = await axios.delete(`http://localhost:8000/api/transactions/${_id}`, {
+    const response = await axios.delete(`${backendBaseUrl}/api/transactions/${_id}`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem("sessionToken")}`
       }

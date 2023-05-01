@@ -1,8 +1,10 @@
 import axios from "axios"
 
+const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
+
 async function getAllTransactions() {
   try {
-    const { data } = await axios.get('http://localhost:8000/api/transactions', {
+    const { data } = await axios.get(`${backendBaseUrl}/api/transactions`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('sessionToken')}`
       }
