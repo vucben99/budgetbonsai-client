@@ -40,7 +40,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
     e.preventDefault()
     const updatedTransaction = await putTransaction(transaction._id, {
       name: name.value,
-      amount: amount.value,
+      amount: parseFloat(amount.value),
       currency: currency.value,
       type: type.value,
       category: category.value,
