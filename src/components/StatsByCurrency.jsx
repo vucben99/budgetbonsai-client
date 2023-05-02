@@ -2,7 +2,7 @@ import { Flex, Text, Card, CardBody, CardHeader } from '@chakra-ui/react'
 
 function StatsByCurrency({ transactions, currency }) {
   return (
-    <Card>
+    <Card borderRadius='xl'>
       <CardHeader pb={0}>
         <Text fontSize='xl' fontWeight='bold'>
           {currency}
