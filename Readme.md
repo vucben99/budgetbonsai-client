@@ -4,7 +4,7 @@
 
 This is my final exam project for Codecool's Junior Fullstack API Developer course. It's a fullstack expense and income tracker web application, in which - after logging in with Google - you can add, see, modify and delete transactions, and also see statistics. This repository is for the frontend of the app. This won't work without the backend server.
 
-# Instructions:
+## Instructions:
 
 1. Run `npm install` in the root directory
 2. Set environment variables:
