@@ -18,6 +18,15 @@ function App() {
     if (sessionToken) {
       setIsLoggedIn(true)
       setUserData(JSON.parse(userData))
+
+      const decoded = jwt_decode(sessionToken)
+      const currentTime = Date.now() / 1000
+      if (decoded.exp < currentTime) {
+        localStorage.removeItem('sessionToken')
+        localStorage.removeItem('userData')
+        setIsLoggedIn(false)
+        setUserData(null)
+      }
     }
   }, [])
 

@@ -56,7 +56,7 @@ function Navbar() {
           <Text whiteSpace='nowrap' fontWeight='bold' display={{ base: 'none', md: 'initial' }}>
             {userData?.name}
           </Text>
-          <Avatar size='md' src={userData.picture} />
+          <Avatar size='md' src={userData?.picture} />
           <Button colorScheme='green' onClick={logoutHandler}>
             Logout
           </Button>
