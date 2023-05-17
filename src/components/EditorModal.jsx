@@ -60,7 +60,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay backdropFilter='blur(5px)' />
-      <ModalContent>
+      <ModalContent bg='#ffffff99' borderRadius='xl'>
         <ModalHeader>
           <Text fontSize={30} fontWeight='bold'>
             Edit Transaction
