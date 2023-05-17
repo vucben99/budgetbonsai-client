@@ -1,4 +1,6 @@
 import { Flex, Text, Card, CardBody, CardHeader } from '@chakra-ui/react'
+import {Pie} from 'react-chartjs-2'
+import {Chart as ChartJS} from 'chart.js/auto'
 
 function StatsByCurrency({ transactions, currency }) {
   return (

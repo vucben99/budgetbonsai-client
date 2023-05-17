@@ -1,16 +1,9 @@
-import {
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from '@chakra-ui/react'
+import { Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import TransactionForm from './TransactionForm'
 
 function NewTransaction() {
-
   return (
-    <Card as='section' bg='whiteAlpha.600' backdropFilter='blur(10px)' borderRadius='2xl'>
+    <Card as='section' bg='#ffffff99' backdropFilter='blur(10px)' borderRadius='2xl'>
       <CardHeader pb={0}>
         <Heading as='h3' size='lg'>
           New transaction

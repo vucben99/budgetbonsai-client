@@ -13,7 +13,6 @@ import {
   Heading
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { FcGoogle } from 'react-icons/fc'
 import { GiBonsaiTree } from 'react-icons/gi'
 import jwt_decode from 'jwt-decode'
 
@@ -26,12 +25,6 @@ function Navbar() {
     setIsLoggedIn(false)
     setUserData(null)
   }
-
-  const clientBaseUrl = import.meta.env.VITE_CLIENT_BASE_URL
-  const clientId = '570549999643-v2v38o9f648bi092dnbo4qigqp02sb4k.apps.googleusercontent.com'
-  const scope = 'email%20profile%20openid'
-  const redirectUri = `${clientBaseUrl}/finishlogin`
-  const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}&prompt=consent&access_type=offline`
 
   return (
     <Flex
@@ -51,7 +44,7 @@ function Navbar() {
         </Heading>
       </HStack>
       <Spacer />
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <HStack spacing={3}>
           <Text whiteSpace='nowrap' fontWeight='bold' display={{ base: 'none', md: 'initial' }}>
             {userData?.name}
@@ -61,16 +54,6 @@ function Navbar() {
             Logout
           </Button>
         </HStack>
-      ) : (
-        <Button
-          as='a'
-          href={googleLoginUrl}
-          size='lg'
-          colorScheme='whatsapp'
-          leftIcon={<FcGoogle />}
-        >
-          Login
-        </Button>
       )}
     </Flex>
   )

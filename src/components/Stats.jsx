@@ -9,7 +9,7 @@ function Stats() {
   return (
     <Card
       as='section'
-      bg='whiteAlpha.600'
+      bg='#ffffff99'
       backdropFilter='blur(10px)'
       borderRadius='2xl'
       gridColumn={{ base: 'span 1', md: 'span 2', xl: 'span 1' }}

@@ -19,9 +19,11 @@ function Dashboard() {
   }, [])
 
   return (
-    <Container as='main' maxW='1600px' color='white'>
-      <Heading my='5'>Dashboard</Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={6} height='70vh'>
+    <Container as='main' maxW='1600px' color='white' mt='80px' borderRadius='2xl' p={5}>
+      <Heading mb={5} fontSize={40}>
+        Dashboard
+      </Heading>
+      <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={6} minHeight='70vh'>
         <TransactionList />
         <NewTransaction />
         <Stats />
