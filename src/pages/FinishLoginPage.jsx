@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { sessionContext } from '../contexts/sessionContext'
+import { Flex, Spinner } from '@chakra-ui/react'
 
 const backendBaseUrl = import.meta.env.VITE_BACKEND_BASE_URL
 
@@ -34,7 +35,11 @@ function FinishLoginPage() {
     finishLogin()
   }, [])
 
-  return <h2>Redirecting...</h2>
+  return (
+    <Flex minHeight='100vh' justify='center' alignItems='center'>
+      <Spinner size='xl' color='white' />
+    </Flex>
+  )
 }
 
 export default FinishLoginPage
