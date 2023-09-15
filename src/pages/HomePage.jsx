@@ -33,7 +33,7 @@ function HomePage() {
           <Heading mt={5} fontSize={50}>
             BudgetBonsai
           </Heading>
-          <Heading mt={5} fontSize={30} fontColor='red.500'>
+          <Heading mt={5} fontSize={30} color={'red.500'}>
             {/* Manage your expenses and incomes all in one place! */}
             OOPS! We are doing some maintenance. Please come back later!
           </Heading>
@@ -44,7 +44,7 @@ function HomePage() {
             colorScheme='whatsapp'
             leftIcon={<FcGoogle />}
             mt={5}
-            disabled={true}
+            isDisabled={true}
           >
             Login
           </Button>
