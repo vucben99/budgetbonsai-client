@@ -34,7 +34,8 @@ function HomePage() {
             BudgetBonsai
           </Heading>
           <Heading mt={5} fontSize={30}>
-            Manage your expenses and incomes all in one place!
+            {/* Manage your expenses and incomes all in one place! */}
+            OOPS! We are doing some maintenance. Please come back later!
           </Heading>
           <Button
             as='a'
@@ -43,6 +44,7 @@ function HomePage() {
             colorScheme='whatsapp'
             leftIcon={<FcGoogle />}
             mt={5}
+            disabled
           >
             Login
           </Button>
