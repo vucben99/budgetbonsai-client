@@ -44,7 +44,7 @@ function HomePage() {
             colorScheme='whatsapp'
             leftIcon={<FcGoogle />}
             mt={5}
-            isDisabled={true}
+            isDisabled={false}
           >
             Login
           </Button>
