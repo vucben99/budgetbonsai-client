@@ -7,8 +7,8 @@ import Navbar from '../components/Navbar'
 
 function HomePage() {
   const clientBaseUrl = import.meta.env.VITE_CLIENT_BASE_URL
-  const clientId = '570549999643-v2v38o9f648bi092dnbo4qigqp02sb4k.apps.googleusercontent.com'
   const redirectUri = `${clientBaseUrl}/finishlogin`
+  const clientId = import.meta.env.VITE_CLIENT_ID
   const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=email%20profile%20openid&prompt=consent&access_type=offline`
 
   useEffect(() => {
