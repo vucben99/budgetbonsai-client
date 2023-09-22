@@ -48,7 +48,7 @@ function HomePage() {
           >
             Login
           </Button>
-          <Text mt={5} fontSize={12}>
+          <Text mt={3} fontSize={12}>
             By logging in, we are only getting your email address, your name, and your profile
             picture.
           </Text>
