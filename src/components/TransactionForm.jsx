@@ -56,7 +56,7 @@ function TransactionForm() {
   return (
     <Flex as='form' flexDir='column' gap={3} onSubmit={handleAddNewTransaction}>
       <FormControl isRequired>
-        <FormLabel>Name</FormLabel>
+        <FormLabel>Description</FormLabel>
         <Input
           type='text'
           autoComplete='off'
