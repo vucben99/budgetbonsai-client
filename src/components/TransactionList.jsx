@@ -34,7 +34,7 @@ function TransactionList() {
             <Image src='empty.gif' alt='No transactions yet.' />
           </Flex>
         )}
-        {transactions?.length && (
+        {transactions.length ? (
           <List spacing={2}>
             {transactions
               .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -42,7 +42,7 @@ function TransactionList() {
                 <Transaction transaction={transaction} key={transaction._id} />
               ))}
           </List>
-        )}
+        ) : null}
       </CardBody>
     </Card>
   )
