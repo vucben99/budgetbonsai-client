@@ -21,8 +21,8 @@ import postNewTransaction from '../api/postNewTransaction'
 function TransactionForm() {
   const { transactions, setTransactions } = useContext(sessionContext)
 
-  const name = useInput('')
-  const amount = useInput('1.00')
+  const description = useInput('')
+  const total = useInput('1.00')
   const currency = useInput('HUF')
   const type = useInput('expense')
   const category = useInput('Unknown')
@@ -33,8 +33,8 @@ function TransactionForm() {
     try {
       console.log(date.value)
       const newTransaction = await postNewTransaction({
-        name: name.value,
-        amount: parseFloat(amount.value),
+        name: description.value,
+        amount: parseFloat(total.value),
         currency: currency.value,
         type: type.value,
         date: date.value.length ? new Date(date.value).toISOString() : new Date().toISOString(),
@@ -42,8 +42,8 @@ function TransactionForm() {
       })
       if (newTransaction) {
         setTransactions([newTransaction, ...transactions])
-        name.reset()
-        amount.reset()
+        description.reset()
+        total.reset()
         currency.reset()
         type.reset()
         category.reset()
@@ -60,9 +60,9 @@ function TransactionForm() {
         <Input
           type='text'
           autoComplete='off'
-          placeholder='Name'
-          value={name.value}
-          onChange={name.onChange}
+          placeholder='Description'
+          value={description.value}
+          onChange={description.onChange}
           variant='filled'
           _focus={{ bg: '#fff' }}
           maxLength={25}
@@ -77,10 +77,10 @@ function TransactionForm() {
             max={100000000000}
             precision={2}
             step={1}
-            placeholder='Amount'
-            value={amount.value}
+            placeholder='Total'
+            value={total.value}
             onChange={(value) => {
-              amount.setValue(value)
+              total.setValue(value)
             }}
             _focus={{ bg: '#fff' }}
             inputMode='numeric'
@@ -163,7 +163,7 @@ function TransactionForm() {
           colorScheme='whatsapp'
           mt='5'
           leftIcon={<AddIcon />}
-          isDisabled={!(name.value.length && parseFloat(amount.value))}
+          isDisabled={!(description.value.length && parseFloat(total.value))}
         >
           Save
         </Button>
