@@ -70,7 +70,7 @@ function TransactionForm() {
       </FormControl>
       <Flex gap={3}>
         <FormControl isRequired>
-          <FormLabel>Amount</FormLabel>
+          <FormLabel>Total</FormLabel>
           <NumberInput
             variant='filled'
             min={0.01}
