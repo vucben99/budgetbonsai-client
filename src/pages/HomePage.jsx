@@ -33,8 +33,8 @@ function HomePage() {
           <Heading mt={5} fontSize={50}>
             BudgetBonsai
           </Heading>
-          <Heading mt={5} fontSize={30}>
-            Manage your expenses and incomes all in one place!
+          <Heading mt={5} fontSize={30} textAlign='center'>
+            Manage your expenses and incomes in one place!
             {/* OOPS! We are doing some maintenance. Please come back later! */}
           </Heading>
           <Button
@@ -48,7 +48,10 @@ function HomePage() {
           >
             Login
           </Button>
-          <Text mt={5} fontSize={12}>By logging in, we are only getting your email address, your name, and your profile picture.</Text>
+          <Text mt={5} fontSize={12}>
+            By logging in, we are only getting your email address, your name, and your profile
+            picture.
+          </Text>
         </Flex>
       </Flex>
     </>
