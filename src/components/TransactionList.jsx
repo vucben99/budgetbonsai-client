@@ -29,19 +29,20 @@ function TransactionList() {
         </Heading>
       </CardHeader>
       <CardBody maxH='70vh' overflowY='auto'>
-        <List spacing={2}>
-          {!transactions?.length && (
-            <Flex boxSize='5rem' justify='center'>
-              <Image src='empty.gif' alt='No transactions yet' />
-            </Flex>
-          )}
-          {transactions?.length &&
-            transactions
+        {!transactions?.length && (
+          <Flex w='100%' h='100%' align='center' justify='center'>
+            <Image src='empty.gif' alt='No transactions yet.' />
+          </Flex>
+        )}
+        {transactions?.length && (
+          <List spacing={2}>
+            {transactions
               .sort((a, b) => new Date(b.date) - new Date(a.date))
               .map((transaction) => (
                 <Transaction transaction={transaction} key={transaction._id} />
               ))}
-        </List>
+          </List>
+        )}
       </CardBody>
     </Card>
   )
