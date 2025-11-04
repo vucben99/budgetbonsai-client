@@ -4,9 +4,14 @@
 
 This is my final exam project for Codecool's Junior Fullstack API Developer course. It's a fullstack expense and income tracker web application, in which - after logging in with Google - you can add, see, modify and delete transactions, and also see statistics. This repository is for the frontend of the app. This won't work without the backend server.
 
+## Requirements
+
+- Node.js >= 18.17.0
+- npm >= 9.6.7
+
 ## Instructions:
 
-1. Run `npm install` in the root directory
+1. Install dependencies with `npm install` in the root directory. The lockfile is intentionally omitted so the latest compatible package versions will be used when you install.
 2. Set environment variables:
    - Create a `.env` file in the root directory
    - Paste the following lines into the file:
