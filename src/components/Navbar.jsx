@@ -12,8 +12,6 @@ import {
   HStack,
   Heading
 } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
-import { GiBonsaiTree } from 'react-icons/gi'
 
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(sessionContext)
@@ -30,7 +28,7 @@ function Navbar() {
       as='nav'
       h='65px'
       p='16px'
-      bg='whatsapp.400'
+      bg='green'
       align='center'
       position='fixed'
       inset={0}
