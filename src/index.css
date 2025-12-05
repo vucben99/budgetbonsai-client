@@ -1,6 +1,28 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  background: url('/public/wallpaper.jpg') no-repeat center center fixed !important;
-  background-size: cover;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url('/wallpaper.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-position: center center !important;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
 }

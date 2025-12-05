@@ -45,7 +45,7 @@ function Navbar() {
       <Spacer />
       {isLoggedIn && (
         <HStack spacing={3}>
-          <Text whiteSpace='nowrap' fontWeight='bold' display={{ base: 'none', md: 'initial' }}>
+          <Text whiteSpace='nowrap' fontWeight='bold' color='white' display={{ base: 'none', md: 'initial' }}>
             {userData?.name}
           </Text>
           <Avatar size='md' src={userData?.picture} />

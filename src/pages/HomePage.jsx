@@ -35,13 +35,13 @@ function HomePage() {
           </Heading>
           <Heading mt={5} fontSize={30} textAlign='center'>
             Manage your expenses and incomes in one place!
-            {/* OOPS! We are doing some maintenance. Please come back later! */}
           </Heading>
           <Button
             as='a'
             href={googleLoginUrl}
             size='lg'
-            colorScheme='whatsapp'
+            colorScheme='green'
+            variant='solid'
             leftIcon={<FcGoogle />}
             mt={5}
             isDisabled={false}
