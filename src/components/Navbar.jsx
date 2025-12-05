@@ -28,11 +28,12 @@ function Navbar() {
       as='nav'
       h='65px'
       p='16px'
-      bg='green'
+      backdropFilter='blur(10px)'
       align='center'
       position='fixed'
       inset={0}
       zIndex={99}
+      paddingBlock={10}
     >
       <HStack spacing='5px'>
         <Image src='favicon.png' alt='Bonsai logo' w={14} />
