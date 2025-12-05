@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import jwt_decode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 import { sessionContext } from '../contexts/sessionContext'
 import { Flex, Spinner } from '@chakra-ui/react'
 
@@ -18,7 +18,7 @@ function FinishLoginPage() {
         const sessionTokenResponse = await axios.post(`${backendBaseUrl}/api/login`, { code })
         const sessionToken = sessionTokenResponse.data.sessionToken
         localStorage.setItem('sessionToken', sessionToken)
-        const decodedToken = jwt_decode(sessionToken)
+        const decodedToken = jwtDecode(sessionToken)
         const user = {
           name: `${decodedToken.first_name} ${decodedToken.last_name}`,
           email: decodedToken.email,
