@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { sessionContext } from './contexts/sessionContext'
 import { useContext } from 'react'
-import jwt_decode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 import axios from 'axios'
 
 import FinishLoginPage from './pages/FinishLoginPage'
@@ -19,7 +19,7 @@ function App() {
       setIsLoggedIn(true)
       setUserData(JSON.parse(userData))
 
-      const decoded = jwt_decode(sessionToken)
+      const decoded = jwtDecode(sessionToken)
       const currentTime = Date.now() / 1000
       if (decoded.exp < currentTime) {
         localStorage.removeItem('sessionToken')

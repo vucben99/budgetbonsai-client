@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { GiBonsaiTree } from 'react-icons/gi'
-import jwt_decode from 'jwt-decode'
 
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(sessionContext)
