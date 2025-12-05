@@ -160,7 +160,8 @@ function TransactionForm() {
       <Flex justify='center'>
         <Button
           type='submit'
-          colorScheme='whatsapp'
+          colorScheme='green'
+          variant='solid'
           mt='5'
           leftIcon={<AddIcon />}
           isDisabled={!(description.value.length && parseFloat(total.value))}
