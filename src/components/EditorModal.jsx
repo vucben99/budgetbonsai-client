@@ -179,7 +179,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
             <Button variant='outline' colorScheme='red' onClick={onClose}>
               Cancel
             </Button>
-            <Button variant='solid' colorScheme='whatsapp' onClick={handlePutTransaction}>
+            <Button variant='solid' colorScheme='green' onClick={handlePutTransaction}>
               Save
             </Button>
           </Flex>

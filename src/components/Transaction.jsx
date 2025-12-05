@@ -47,7 +47,7 @@ function Transaction({ transaction }) {
         </VStack>
       </Flex>
       <ButtonGroup display='flex' size='xs' justifyContent='flex-end'>
-        <IconButton icon={<EditBtn />} colorScheme='whatsapp' aria-label='Edit' onClick={onOpen} />
+        <IconButton icon={<EditBtn />} variant='solid' colorScheme='green' aria-label='Edit' onClick={onOpen} />
         <IconButton
           icon={<DelBtn />}
           colorScheme='red'
