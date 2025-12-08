@@ -20,8 +20,3 @@ body {
   background-attachment: fixed !important;
   background-position: center center !important;
 }
-
-#root {
-  min-height: 100vh;
-  min-height: 100dvh;
-}
