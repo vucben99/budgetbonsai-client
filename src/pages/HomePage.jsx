@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { Flex, Card, CardBody, Heading, Image, Button, Text } from '@chakra-ui/react'
+import { Flex, Heading, Image, Button, Text, useColorModeValue } from '@chakra-ui/react'
 import { FcGoogle } from 'react-icons/fc'
 import { sessionContext } from '../contexts/sessionContext'
 import Dashboard from '../pages/Dashboard'
@@ -16,6 +16,7 @@ function HomePage() {
   }, [])
 
   const { isLoggedIn } = useContext(sessionContext)
+  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.6)', 'rgba(26, 32, 44, 0.85)')
 
   return !isLoggedIn ? (
     <>
@@ -25,7 +26,7 @@ function HomePage() {
           direction='column'
           align='center'
           p={10}
-          bg='#ffffff99'
+          bg={cardBg}
           backdropFilter='blur(10px)'
           borderRadius='2xl'
         >

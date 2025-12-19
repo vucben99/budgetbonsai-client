@@ -11,7 +11,6 @@ import {
   Heading,
   Switch,
   useColorMode,
-  useColorModeValue,
   Box
 } from '@chakra-ui/react'
 import { FaSun, FaMoon } from 'react-icons/fa'
@@ -19,7 +18,6 @@ import { FaSun, FaMoon } from 'react-icons/fa'
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(sessionContext)
   const { colorMode, toggleColorMode } = useColorMode()
-  const textColor = useColorModeValue('gray.800', 'white')
 
   function logoutHandler() {
     localStorage.removeItem('sessionToken')
@@ -42,7 +40,7 @@ function Navbar() {
     >
       <HStack spacing='5px'>
         <Image src='favicon.png' alt='Bonsai logo' w={14} />
-        <Heading as='h1' fontSize='3xl' color={textColor} display={{ base: 'none', sm: 'initial' }}>
+        <Heading as='h1' fontSize='3xl' color='white' display={{ base: 'none', sm: 'initial' }}>
           BudgetBonsai
         </Heading>
       </HStack>
@@ -70,7 +68,7 @@ function Navbar() {
         </HStack>
         {isLoggedIn && (
           <HStack spacing={3}>
-            <Text whiteSpace='nowrap' fontWeight='bold' color={textColor} display={{ base: 'none', md: 'initial' }}>
+            <Text whiteSpace='nowrap' fontWeight='bold' color='white' display={{ base: 'none', md: 'initial' }}>
               Hello, {userData?.name}!
             </Text>
             <Avatar size='md' src={userData?.picture} />

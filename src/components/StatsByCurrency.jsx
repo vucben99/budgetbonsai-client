@@ -1,10 +1,10 @@
-import { Flex, Text, Card, CardBody, CardHeader } from '@chakra-ui/react'
-import {Pie} from 'react-chartjs-2'
-import {Chart as ChartJS} from 'chart.js/auto'
+import { Flex, Text, Card, CardBody, CardHeader, useColorModeValue } from '@chakra-ui/react'
 
 function StatsByCurrency({ transactions, currency }) {
+  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.4)', 'rgba(45, 55, 72, 0.6)')
+
   return (
-    <Card borderRadius='xl'>
+    <Card borderRadius='xl' bg={cardBg}>
       <CardHeader pb={0}>
         <Text fontSize='xl' fontWeight='bold'>
           {currency}
