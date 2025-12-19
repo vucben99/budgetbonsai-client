@@ -1,18 +1,12 @@
 import {
-  Container,
   Card,
   CardHeader,
   CardBody,
   Heading,
   List,
-  ListItem,
-  Spacer,
   Flex,
-  Text,
-  VStack,
-  IconButton,
-  ButtonGroup,
-  Image
+  Image,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { sessionContext } from '../contexts/sessionContext'
@@ -20,9 +14,10 @@ import Transaction from './Transaction'
 
 function TransactionList() {
   const { transactions } = useContext(sessionContext)
+  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.6)', 'rgba(26, 32, 44, 0.85)')
 
   return (
-    <Card as='section' bg='#ffffff99' backdropFilter='blur(10px)' borderRadius='2xl'>
+    <Card as='section' bg={cardBg} backdropFilter='blur(10px)' borderRadius='2xl'>
       <CardHeader pb={0}>
         <Heading as='h3' size='lg'>
           Transactions
