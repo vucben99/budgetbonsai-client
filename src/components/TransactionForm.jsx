@@ -87,7 +87,7 @@ function TransactionForm() {
             _focus={{ bg: focusBg }}
             inputMode='numeric'
           >
-            <NumberInputField _focus={{ bg: '#fff' }} />
+            <NumberInputField _focus={{ bg: focusBg }} />
             <NumberInputStepper>
               <NumberIncrementStepper />
               <NumberDecrementStepper />

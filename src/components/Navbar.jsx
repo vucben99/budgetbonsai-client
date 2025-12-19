@@ -45,7 +45,7 @@ function Navbar() {
         </Heading>
       </HStack>
       <Spacer />
-      <HStack spacing={3}>
+      <HStack spacing={6}>
         <HStack spacing={2} align='center'>
           <Box
             as={FaSun}
@@ -67,7 +67,7 @@ function Navbar() {
           />
         </HStack>
         {isLoggedIn && (
-          <HStack spacing={3}>
+          <HStack spacing={4}>
             <Text whiteSpace='nowrap' fontWeight='bold' color='white' display={{ base: 'none', md: 'initial' }}>
               Hello, {userData?.name}!
             </Text>

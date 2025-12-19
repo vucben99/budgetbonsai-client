@@ -102,7 +102,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                   _focus={{ bg: focusBg }}
                   inputMode='numeric'
                 >
-                  <NumberInputField _focus={{ bg: '#fff' }} />
+                  <NumberInputField _focus={{ bg: focusBg }} />
                   <NumberInputStepper>
                     <NumberIncrementStepper />
                     <NumberDecrementStepper />
