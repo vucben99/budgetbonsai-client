@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, IconButton, ListItem, Spacer, Text, VStack } from '@chakra-ui/react'
+import { ButtonGroup, Flex, IconButton, ListItem, Spacer, Text, VStack, useColorModeValue } from '@chakra-ui/react'
 import { AiFillEdit as EditBtn, AiFillDelete as DelBtn } from 'react-icons/ai'
 import { useContext } from 'react'
 import { sessionContext } from '../contexts/sessionContext'
@@ -9,6 +9,10 @@ import EditorModal from './EditorModal'
 function Transaction({ transaction }) {
   const { setTransactions } = useContext(sessionContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const itemBg = useColorModeValue('gray.200', 'rgba(45, 55, 72, 0.6)')
+  const textColor = useColorModeValue('gray.800', 'white')
+  const categoryColor = useColorModeValue('gray.600', 'gray.300')
+  const dateColor = useColorModeValue('gray.500', 'gray.400')
 
   async function handleDelete(id) {
     try {
@@ -22,13 +26,13 @@ function Transaction({ transaction }) {
   }
 
   return (
-    <ListItem bg='gray.200' p={3} borderRadius='lg'>
+    <ListItem bg={itemBg} p={3} borderRadius='lg'>
       <Flex spacing={1}>
         <VStack align='flex-start' spacing={0}>
-          <Text fontSize='lg' whiteSpace='nowrap'>
+          <Text fontSize='lg' whiteSpace='nowrap' color={textColor}>
             {transaction.name}
           </Text>
-          <Text fontSize='sm' whiteSpace='nowrap'>{transaction.category}</Text>
+          <Text fontSize='sm' whiteSpace='nowrap' color={categoryColor}>{transaction.category}</Text>
         </VStack>
         <Spacer />
         <VStack align='flex-end' spacing={0}>
@@ -37,7 +41,7 @@ function Transaction({ transaction }) {
             {transaction.amount.toLocaleString()}
             {` ${transaction.currency}`}
           </Text>
-          <Text fontSize='sm' color='gray.500' whiteSpace='nowrap'>
+          <Text fontSize='sm' color={dateColor} whiteSpace='nowrap'>
             {new Date(transaction.date).toLocaleDateString() + ' '}
             {new Date(transaction.date).toLocaleTimeString([], {
               hour: '2-digit',

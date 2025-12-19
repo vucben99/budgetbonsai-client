@@ -17,7 +17,8 @@ import {
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper
+  NumberDecrementStepper,
+  useColorModeValue
 } from '@chakra-ui/react'
 import axios from 'axios'
 import { DateTime } from 'luxon'
@@ -28,6 +29,8 @@ import { sessionContext } from '../contexts/sessionContext'
 
 function EditorModal({ isOpen, onClose, transaction }) {
   const { setTransactions } = useContext(sessionContext)
+  const modalBg = useColorModeValue('rgba(255, 255, 255, 0.6)', 'rgba(26, 32, 44, 0.85)')
+  const focusBg = useColorModeValue('#fff', 'gray.700')
 
   const name = useInput(transaction.name)
   const amount = useInput(transaction.amount)
@@ -60,7 +63,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay backdropFilter='blur(5px)' />
-      <ModalContent bg='#ffffff99' borderRadius='xl'>
+      <ModalContent bg={modalBg} backdropFilter='blur(10px)' borderRadius='xl'>
         <ModalHeader>
           <Text fontSize={30} fontWeight='bold'>
             Edit Transaction
@@ -78,7 +81,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                 value={name.value}
                 onChange={name.onChange}
                 variant='filled'
-                _focus={{ bg: '#fff' }}
+                _focus={{ bg: focusBg }}
                 maxLength={25}
               />
             </FormControl>
@@ -96,7 +99,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                   onChange={(value) => {
                     amount.setValue(value)
                   }}
-                  _focus={{ bg: '#fff' }}
+                  _focus={{ bg: focusBg }}
                   inputMode='numeric'
                 >
                   <NumberInputField _focus={{ bg: '#fff' }} />
@@ -112,7 +115,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                   value={currency.value}
                   onChange={currency.onChange}
                   variant='filled'
-                  _focus={{ bg: '#fff' }}
+                  _focus={{ bg: focusBg }}
                 >
                   <option value='HUF'>HUF</option>
                   <option value='EUR'>EUR</option>
@@ -125,7 +128,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                 value={type.value}
                 onChange={type.onChange}
                 variant='filled'
-                _focus={{ bg: '#fff' }}
+                _focus={{ bg: focusBg }}
               >
                 <option value='expense'>Expense</option>
                 <option value='income'>Income</option>
@@ -138,7 +141,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                   value={category.value}
                   onChange={category.onChange}
                   variant='filled'
-                  _focus={{ bg: '#fff' }}
+                  _focus={{ bg: focusBg }}
                 >
                   <option value='Groceries'>Groceries</option>
                   <option value='Restaurant'>Restaurant</option>
@@ -164,7 +167,7 @@ function EditorModal({ isOpen, onClose, transaction }) {
                   placeholder='Select date and time'
                   type='datetime-local'
                   variant='filled'
-                  _focus={{ bg: '#fff' }}
+                  _focus={{ bg: focusBg }}
                   value={DateTime.fromISO(date.value).toFormat("yyyy-MM-dd'T'HH:mm")}
                   onChange={date.onChange}
                   max={DateTime.local().toISO().slice(0, 19)}

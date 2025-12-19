@@ -9,7 +9,8 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Select,
-  Button
+  Button,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { AddIcon } from '@chakra-ui/icons'
 import { useContext } from 'react'
@@ -20,6 +21,7 @@ import postNewTransaction from '../api/postNewTransaction'
 
 function TransactionForm() {
   const { transactions, setTransactions } = useContext(sessionContext)
+  const focusBg = useColorModeValue('#fff', 'gray.700')
 
   const description = useInput('')
   const total = useInput('1.00')
@@ -64,7 +66,7 @@ function TransactionForm() {
           value={description.value}
           onChange={description.onChange}
           variant='filled'
-          _focus={{ bg: '#fff' }}
+          _focus={{ bg: focusBg }}
           maxLength={25}
         />
       </FormControl>
@@ -82,7 +84,7 @@ function TransactionForm() {
             onChange={(value) => {
               total.setValue(value)
             }}
-            _focus={{ bg: '#fff' }}
+            _focus={{ bg: focusBg }}
             inputMode='numeric'
           >
             <NumberInputField _focus={{ bg: '#fff' }} />
@@ -98,7 +100,7 @@ function TransactionForm() {
             value={currency.value}
             onChange={currency.onChange}
             variant='filled'
-            _focus={{ bg: '#fff' }}
+            _focus={{ bg: focusBg }}
           >
             <option value='HUF'>HUF</option>
             <option value='EUR'>EUR</option>
@@ -111,7 +113,7 @@ function TransactionForm() {
           value={type.value}
           onChange={type.onChange}
           variant='filled'
-          _focus={{ bg: '#fff' }}
+          _focus={{ bg: focusBg }}
         >
           <option value='expense'>Expense</option>
           <option value='income'>Income</option>
@@ -124,7 +126,7 @@ function TransactionForm() {
             value={category.value}
             onChange={category.onChange}
             variant='filled'
-            _focus={{ bg: '#fff' }}
+            _focus={{ bg: focusBg }}
           >
             <option value='Groceries'>Groceries</option>
             <option value='Restaurant'>Restaurant</option>
@@ -150,7 +152,7 @@ function TransactionForm() {
             placeholder='Select date and time'
             type='datetime-local'
             variant='filled'
-            _focus={{ bg: '#fff' }}
+            _focus={{ bg: focusBg }}
             value={date.value}
             onChange={date.onChange}
             max={DateTime.local().toISO().slice(0, 19)}
