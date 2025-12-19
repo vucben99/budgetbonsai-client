@@ -1,20 +1,25 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { sessionContext } from '../contexts/sessionContext'
 import {
   Image,
   Flex,
-  Box,
-  Icon,
   Text,
   Spacer,
   Avatar,
   Button,
   HStack,
-  Heading
+  Heading,
+  Switch,
+  useColorMode,
+  useColorModeValue,
+  Box
 } from '@chakra-ui/react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(sessionContext)
+  const { colorMode, toggleColorMode } = useColorMode()
+  const textColor = useColorModeValue('gray.800', 'white')
 
   function logoutHandler() {
     localStorage.removeItem('sessionToken')
@@ -37,22 +42,44 @@ function Navbar() {
     >
       <HStack spacing='5px'>
         <Image src='favicon.png' alt='Bonsai logo' w={14} />
-        <Heading as='h1' fontSize='3xl' color='white' display={{ base: 'none', sm: 'initial' }}>
+        <Heading as='h1' fontSize='3xl' color={textColor} display={{ base: 'none', sm: 'initial' }}>
           BudgetBonsai
         </Heading>
       </HStack>
       <Spacer />
-      {isLoggedIn && (
-        <HStack spacing={3}>
-          <Text whiteSpace='nowrap' fontWeight='bold' color='white' display={{ base: 'none', md: 'initial' }}>
-            {userData?.name}
-          </Text>
-          <Avatar size='md' src={userData?.picture} />
-          <Button colorScheme='green' onClick={logoutHandler}>
-            Logout
-          </Button>
+      <HStack spacing={3}>
+        <HStack spacing={2} align='center'>
+          <Box
+            as={FaSun}
+            color={colorMode === 'light' ? 'yellow.400' : 'gray.400'}
+            boxSize='18px'
+            transition='color 0.2s'
+          />
+          <Switch
+            isChecked={colorMode === 'dark'}
+            onChange={toggleColorMode}
+            colorScheme='green'
+            size='md'
+          />
+          <Box
+            as={FaMoon}
+            color={colorMode === 'dark' ? 'blue.300' : 'gray.400'}
+            boxSize='18px'
+            transition='color 0.2s'
+          />
         </HStack>
-      )}
+        {isLoggedIn && (
+          <HStack spacing={3}>
+            <Text whiteSpace='nowrap' fontWeight='bold' color={textColor} display={{ base: 'none', md: 'initial' }}>
+              Hello, {userData?.name}!
+            </Text>
+            <Avatar size='md' src={userData?.picture} />
+            <Button colorScheme='green' onClick={logoutHandler}>
+              Logout
+            </Button>
+          </HStack>
+        )}
+      </HStack>
     </Flex>
   )
 }
