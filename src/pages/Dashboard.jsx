@@ -1,5 +1,5 @@
 import { useEffect, useContext } from 'react'
-import { SimpleGrid, Container, Heading } from '@chakra-ui/react'
+import { SimpleGrid, Container, Heading, useColorModeValue } from '@chakra-ui/react'
 import { sessionContext } from '../contexts/sessionContext'
 import NewTransaction from '../components/NewTransaction'
 import TransactionList from '../components/TransactionList'
@@ -8,6 +8,7 @@ import getAllTransactions from '../api/getAllTransactions'
 
 function Dashboard() {
   const { transactions, setTransactions } = useContext(sessionContext)
+  const textColor = useColorModeValue('gray.800', 'white')
 
   useEffect(() => {
     document.title = 'Dashboard - BudgetBonsai'
@@ -19,7 +20,7 @@ function Dashboard() {
   }, [])
 
   return (
-    <Container as='main' maxW='1600px' color='white' mt='80px' borderRadius='2xl' p={5}>
+    <Container as='main' maxW='1600px' color={textColor} mt='80px' borderRadius='2xl' p={5}>
       <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={6} minHeight='70vh'>
         <TransactionList />
         <NewTransaction />
